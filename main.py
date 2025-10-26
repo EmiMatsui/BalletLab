@@ -26,6 +26,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 10000))  # Render supplies PORT
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
+
+
 # 共通処理: 姿勢データ取得と解析
 def process_videos(ideal_video: UploadFile, user_video: UploadFile):
     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") as ideal_tmp:
