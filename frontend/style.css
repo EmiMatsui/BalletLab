@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+body {
+  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  background: linear-gradient(135deg, #0d0d0d, #1b001a);
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  color: #ff66cc;
+  letter-spacing: 0.5px;
+}
+
+p {
+  color: #ddd;
+}
+
+.drop-zone {
+  margin: 40px auto;
+  width: 75%;
+  max-width: 600px;
+  padding: 60px 30px;
+  border: 2px dashed #ff66cc;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffb3ec;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.drop-zone.hover {
+  background: rgba(255, 102, 204, 0.1);
+  box-shadow: 0 0 25px rgba(255, 102, 204, 0.2);
+}
+
+.drop-zone small {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+button {
+  background: linear-gradient(135deg, #ff4fb8, #ff99da);
+  color: #0d0d0d;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(255, 102, 204, 0.4);
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 30px rgba(255, 153, 218, 0.6);
+}
+
+#status {
+  margin-top: 25px;
+  font-size: 1rem;
+  color: #ff99da;
+  font-weight: 500;
+}
+
+#results {
+  text-align: left;
+  margin: 40px auto;
+  max-width: 700px;
+  background: rgba(20, 20, 20, 0.7);
+  border-left: 4px solid #ff66cc;
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.feedback h3 {
+  color: #ff99da;
+  margin-top: 15px;
+}
+
+.feedback p {
+  color: #f3f3f3;
+  line-height: 1.7;
+}
+
+video {
+  width: 80%;
+  max-width: 640px;
+  margin-top: 25px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 105, 180, 0.2);
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 35px;
+  color: #ff99da;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.back-btn:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #ff99da;
+}

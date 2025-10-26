@@ -1,0 +1,26 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+
+# FastAPI / build artifacts
+*.log
+*.sqlite3
+
+# Compiled files
+*.so
+
+# .gitignore の最後に追加
+.env

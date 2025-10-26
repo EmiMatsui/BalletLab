@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Ballet AI Analyzer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🩰 Ballet AI Analyzer</h1>
+  <p>理想フォームとあなたの動画をドラッグ＆ドロップして解析！</p>
+
+  <div class="drop-zone" id="drop-zone-ideal">
+    理想フォーム動画 (ideal.mp4)<br>
+    <small>ここにファイルをドラッグまたはクリック</small>
+    <input type="file" id="ideal" accept="video/mp4">
+  </div>
+
+  <div class="drop-zone" id="drop-zone-user">
+    あなたの動画 (user.mp4)<br>
+    <small>ここにファイルをドラッグまたはクリック</small>
+    <input type="file" id="user" accept="video/mp4">
+  </div>
+
+  <button id="analyzeBtn">解析開始</button>
+
+  <p id="status"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
