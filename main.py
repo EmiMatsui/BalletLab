@@ -2,9 +2,10 @@ import os
 import tempfile
 import json
 from dotenv import load_dotenv
-from fastapi import FastAPI, UploadFile, Form
-from fastapi.responses import Response
+from fastapi import FastAPI, UploadFile
+from fastapi.responses import Response, HTMLResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from ai_module.pose_loader import load_pose_from_video
 from ai_module.normalizer import normalize_sequence
@@ -15,7 +16,7 @@ from ai_module.feedback import generate_feedback, generate_chatgpt_feedback
 # .env 読み込み
 load_dotenv()
 
-app = FastAPI(title="Ballet AI Analyzer (Modular API)", version="3.0")
+app = FastAPI(title="Ballet AI Analyzer (Modular API)", version="3.1")
 
 # CORS許可（HTMLからアクセス可能にする）
 app.add_middleware(
@@ -26,10 +27,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-if __name__ == "__main__":
-    import uvicorn
-    port = int(os.environ.get("PORT", 10000))  # Render supplies PORT
-    uvicorn.run("main:app", host="0.0.0.0", port=port)
+# 🆕 frontend配下をstaticとして公開
+app.mount("/static", StaticFiles(directory="frontend"), name="static")
+
+# 🆕 各HTMLページのルート
+@app.get("/", response_class=HTMLResponse)
+async def root():
+    """メインページ（index.html）"""
+    return FileResponse("frontend/index.html")
+
+@app.get("/result", response_class=HTMLResponse)
+async def result_page():
+    """結果ページ（result.html）"""
+    return FileResponse("frontend/result.html")
 
 
 # 共通処理: 姿勢データ取得と解析
@@ -90,3 +100,10 @@ async def analyze_chatgpt_feedback(ideal_video: UploadFile, user_video: UploadFi
         content=json.dumps({"chatgpt_feedback": str(chatgpt_feedback)}),
         media_type="application/json"
     )
+
+
+# 🆕 Renderエントリーポイント
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 10000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
