@@ -42,16 +42,16 @@ document.addEventListener("DOMContentLoaded", () => {
       analyzeBtn.disabled = true;
 
       try {
-        // スコア
-        const scoreRes = await fetch("http://127.0.0.1:8000/analyze/score", { method: "POST", body: formData });
+        // 🎯 スコア
+        const scoreRes = await fetch("/analyze/score", { method: "POST", body: formData });
         const scoreData = await scoreRes.json();
 
-        // 基本フィードバック
-        const basicRes = await fetch("http://127.0.0.1:8000/analyze/feedback/basic", { method: "POST", body: formData });
+        // 🩰 基本フィードバック
+        const basicRes = await fetch("/analyze/feedback/basic", { method: "POST", body: formData });
         const basicData = await basicRes.json();
 
-        // ChatGPTフィードバック
-        const chatRes = await fetch("http://127.0.0.1:8000/analyze/feedback/chatgpt", { method: "POST", body: formData });
+        // 💬 ChatGPTフィードバック
+        const chatRes = await fetch("/analyze/feedback/chatgpt", { method: "POST", body: formData });
         const chatData = await chatRes.json();
 
         const finalResult = {
