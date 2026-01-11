@@ -2,9 +2,10 @@ fastapi
 uvicorn
 jinja2
 opencv-python
-numpy
 python-dotenv
 openai
 dtw-python
 python-multipart
-mediapipe
+mediapipe==0.10.29
+numpy<2
+protobuf<5
