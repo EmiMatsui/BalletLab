@@ -6,6 +6,6 @@ python-dotenv
 openai
 dtw-python
 python-multipart
-mediapipe==0.10.29
+mediapipe==0.10.21
 numpy<2
 protobuf<5
