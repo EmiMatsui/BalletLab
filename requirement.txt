@@ -1,3 +1,0 @@
-mediapipe==0.10.29
-numpy<2
-protobuf<5
